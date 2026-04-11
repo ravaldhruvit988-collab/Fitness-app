@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -32,7 +33,7 @@ def calculate():
         category = "Obese"
         diet_advice = "Consult a nutritionist, reduce calories, avoid junk food, and exercise carefully."
 
-    # BMR calculation (Mifflin-St Jeor Equation)
+    # BMR calculation
     if gender == 'male':
         bmr = 10*weight + 6.25*height - 5*age + 5
     else:
@@ -55,5 +56,7 @@ def calculate():
                            bmr=round(bmr,2),
                            tdee=round(tdee,2))
 
+# 🔥 IMPORTANT for Render deployment
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
