@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diet Plan Result</title>
+    <style>
+        body { font-family: Arial; text-align:center; margin-top:50px; }
+        .card { display:inline-block; padding:20px; border:1px solid #ccc; border-radius:10px; text-align:left; }
+        a { display:block; margin-top:20px; }
+    </style>
+</head>
+<body>
+    <h1>Your Diet & Health Report</h1>
+    <div class="card">
+        <p><strong>BMI:</strong> {{ bmi }} ({{ category }})</p>
+        <p><strong>BMR:</strong> {{ bmr }} kcal/day</p>
+        <p><strong>TDEE:</strong> {{ tdee }} kcal/day</p>
+        <p><strong>Diet Advice:</strong> {{ diet_advice }}</p>
+    </div>
+    <a href="/">Go Back</a>
+</body>
+</html>
