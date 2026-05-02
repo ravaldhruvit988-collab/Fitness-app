@@ -6,30 +6,15 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>🏋️ Fitness Planner</h1>
+<div class="glass">
+    <h1>🔥Fitness Planner</h1>
 
     <form action="/calculate" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
-
         <input type="number" name="weight" placeholder="Weight (kg)" required>
         <input type="number" name="height" placeholder="Height (cm)" required>
-        <input type="number" name="age" placeholder="Age" required>
 
-        <select name="gender" required>
-            <option value="">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-
-        <select name="activity" required>
-            <option value="">Activity</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-
-        <button type="submit">Get My Plan</button>
+        <button type="submit">Generate Plan</button>
     </form>
 </div>
 
