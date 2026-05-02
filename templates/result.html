@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result</title>
+    <title>Your Plan</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="glass large">
     <h2>Hello {{name}} 👋</h2>
 
-    <p><b>BMI:</b> {{bmi}}</p>
-    <p><b>Status:</b> {{category}}</p>
-    <p><b>Goal:</b> {{goal}}</p>
-    <p><b>Estimated Time:</b> {{days}} days</p>
-    <p><b>Calories Needed:</b> {{tdee}} kcal</p>
+    <p>BMI: {{bmi}}</p>
+    <p>Status: {{status}}</p>
+    <p>Goal: {{goal}}</p>
 
-    <h3>🍽 Diet Plan</h3>
-    <ul>
-        {% for d in diet %}
-        <li>{{d}}</li>
-        {% endfor %}
-    </ul>
+    <canvas id="chart"></canvas>
 
-    <h3>🏋️ Workout Plan</h3>
+    <h3>30-Day Workout Plan</h3>
     <ul>
-        {% for w in workout %}
-        <li>{{w}}</li>
+        {% for day in workout %}
+        <li>{{day}}</li>
         {% endfor %}
     </ul>
 </div>
+
+<script>
+const weights = {{weights|safe}};
+
+new Chart(document.getElementById('chart'), {
+    type: 'line',
+    data: {
+        labels: [...Array(31).keys()],
+        datasets: [{
+            label: 'Projected Weight',
+            data: weights
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
